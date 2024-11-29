@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package vixen.parser;
+
+// instructions
+
+message PumpFunCreateAccountsProto {
+    string mint = 1;
+    string mint_authority = 2;
+    string bonding_curve = 3;
+    string associated_bonding_curve = 4;
+    string global = 5;
+    string mpl_token_metadata = 6;
+    string metadata = 7;
+    string user = 8;
+    string system_program = 9;
+    string token_program = 10;
+    string associated_token_program = 11;
+    string rent = 12;
+    string event_authority = 13;
+    string program = 14;
+}
+
+message PumpFunCreateIxDataProto {
+    string name = 1;
+    string symbol = 2;
+    string uri = 3;
+}
+
+
+message PumpFunBuyAccountsProto {
+    string global = 1;
+    string fee_recipient = 2;
+    string mint = 3;
+    string bonding_curve = 4;
+    string associated_bonding_curve = 5;
+    string associated_user = 6;
+    string user = 7;
+    string system_program = 8;
+    string token_program = 9;
+    string rent = 10;
+    string event_authority = 11;
+    string program = 12;
+}
+
+message PumpFunBuyIxDataProto {
+    uint64 amount = 1;
+    uint64 max_sol_cost = 2;
+}
+
+message PumpFunCreateInstructionProto {
+    PumpFunCreateAccountsProto accounts = 1;
+    PumpFunCreateIxDataProto data = 2;
+}
+
+message PumpFunBuyInstructionProto {
+    PumpFunBuyAccountsProto accounts = 1;
+    PumpFunBuyIxDataProto data = 2;
+}

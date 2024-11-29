@@ -7,6 +7,7 @@ import "solana-token/ixs.proto";
 import "solana-token/extensions.proto";
 import "orca.proto";
 import "raydium.proto";
+import "pumpfun.proto";
 
 
 /// Token Program
@@ -132,4 +133,14 @@ message RaydiumProgramIxProto {
       RaydiumSwapInstructionProto swap = 1;
       RaydiumSwapV2InstructionProto swap_v2 = 2;
     }
+}
+
+/// PumpFun Program
+
+// PumpFun Program Instructions
+message PumpFunProgramIxProto {
+  oneof ix_oneof {
+    PumpFunCreateInstructionProto create = 1;
+    PumpFunBuyInstructionProto buy = 2;
+  }
 }
