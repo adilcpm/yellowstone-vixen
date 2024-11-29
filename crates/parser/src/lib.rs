@@ -17,6 +17,8 @@ mod helpers;
 
 #[cfg(feature = "orca")]
 pub mod orca;
+#[cfg(feature = "pumpfun")]
+pub mod pumpfun;
 #[cfg(feature = "raydium")]
 pub mod raydium;
 #[cfg(feature = "token-extensions")]

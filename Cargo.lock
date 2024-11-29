@@ -6325,6 +6325,7 @@ dependencies = [
  "borsh 1.5.1",
  "bs58 0.5.1",
  "orca_whirlpools_client",
+ "solana-program 1.18.26",
  "spl-pod",
  "spl-token",
  "spl-token-2022",

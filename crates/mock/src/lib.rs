@@ -37,7 +37,7 @@ use yellowstone_vixen_core::{
 };
 
 //TODO: Look these up from the Vixen.toml config file
-const RPC_ENDPOINT: &str = "https://api.devnet.solana.com";
+const RPC_ENDPOINT: &str = "https://rpc.shyft.to?api_key=V9TnM-lWS3lZVTTP";
 const FIXTURES_PATH: &str = "./fixtures";
 const PUBKEY_REGEX: &str = r"^[1-9A-HJ-NP-Za-km-z]{32,44}$";
 const TX_SIGNATURE_REGEX: &str = r"^[1-9A-HJ-NP-Za-km-z]{64,90}$";
@@ -108,7 +108,9 @@ impl TryFrom<SubscribeUpdateAccount> for AccountInfo {
 pub struct SerializablePubkey(pub [u8; 32]);
 
 impl Debug for SerializablePubkey {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { Display::fmt(self, f) }
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        Display::fmt(self, f)
+    }
 }
 
 impl Display for SerializablePubkey {
@@ -118,11 +120,15 @@ impl Display for SerializablePubkey {
 }
 
 impl From<VixenPubkey> for SerializablePubkey {
-    fn from(value: VixenPubkey) -> Self { Self(value.into_bytes()) }
+    fn from(value: VixenPubkey) -> Self {
+        Self(value.into_bytes())
+    }
 }
 
 impl From<SerializablePubkey> for VixenPubkey {
-    fn from(value: SerializablePubkey) -> Self { Self::new(value.0) }
+    fn from(value: SerializablePubkey) -> Self {
+        Self::new(value.0)
+    }
 }
 
 pub type IxIndex = [usize; 2]; // [outer_ix_index, inner_ix_index]
@@ -391,7 +397,9 @@ fn convert_account_info(pubkey: Pubkey) -> impl Fn(Account) -> ClientResult<Acco
 }
 
 #[must_use]
-pub fn get_rpc_client() -> RpcClient { RpcClient::new(RPC_ENDPOINT.to_string()) }
+pub fn get_rpc_client() -> RpcClient {
+    RpcClient::new(RPC_ENDPOINT.to_string())
+}
 
 #[derive(Debug, Clone)]
 pub enum FixtureData {
